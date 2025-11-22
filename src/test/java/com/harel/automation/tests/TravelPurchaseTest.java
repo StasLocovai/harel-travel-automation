@@ -8,8 +8,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class TravelPurchaseTest {
 
@@ -31,8 +29,8 @@ public class TravelPurchaseTest {
         travelPage.clickNextToDates();
         travelPage.selectDepartureAndReturnDates();
         long expectedDays = travelPage.selectDepartureAndReturnDates();
-        String daysText = travelPage.getTotalDaysText();     // "סה״כ 31 ימים"
-        String digits   = daysText.replaceAll("\\D+", "");   // "31"
+        String daysText = travelPage.getTotalDaysText();
+        String digits   = daysText.replaceAll("\\D+", "");
         int actualDays  = Integer.parseInt(digits);
 
         Assert.assertEquals(actualDays, expectedDays, "Total days label incorrect");
